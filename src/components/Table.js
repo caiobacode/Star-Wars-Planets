@@ -6,7 +6,16 @@ function Table() {
     <div>
       <MyContext.Consumer>
         { (value) => {
-          const planets = value.selectedList;
+          const planets = value.context;
+          const { nameFilter } = value;
+          const filter = (arr) => {
+            if (nameFilter === '') {
+              return arr;
+            }
+            const filtered = arr.filter((planet) => planet.name.includes(nameFilter));
+            return filtered;
+          };
+          const mapPlanets = filter(planets);
           return (
             <table>
               <tr>
@@ -25,7 +34,7 @@ function Table() {
                 <th>URL</th>
               </tr>
               {
-                planets.map((p) => (
+                mapPlanets.map((p) => (
                   <tr key={ p.name }>
                     <td>{p.name}</td>
                     <td>{p.rotation_period}</td>

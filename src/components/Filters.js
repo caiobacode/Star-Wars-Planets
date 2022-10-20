@@ -11,7 +11,7 @@ function Filters() {
             <input
               name="filter"
               data-testid="name-filter"
-              onChange={ value.Change }
+              onChange={ value.handleChange }
             />
           </label>
         )}
