@@ -7,9 +7,30 @@ export const MyContext = createContext({});
 function Prov(props) {
   const [context, setContext] = useState([]);
   const [nameFilter, setNameFilter] = useState('');
+  const [filter, setFilter] = useState({
+    hasClicked: false,
+    colunFilter: 'population',
+    comparisonFilter: 'maior que',
+    numberFilter: 0,
+  });
 
   const handleChange = ({ target }) => {
     setNameFilter(target.value);
+  };
+
+  const handleChangeFilter = ({ target }) => {
+    const { name, value } = target;
+    if (name === 'hasClicked') {
+      setFilter({
+        ...filter,
+        hasClicked: true,
+      });
+    } else {
+      setFilter({
+        ...filter,
+        hasClicked: false,
+        [name]: value });
+    }
   };
 
   useEffect(() => {
@@ -24,8 +45,10 @@ function Prov(props) {
   const cont = useMemo(() => ({
     nameFilter,
     context,
+    filter,
     handleChange,
-  }), [nameFilter, context, handleChange]);
+    handleChangeFilter,
+  }), [nameFilter, context, filter, handleChange, handleChangeFilter]);
   const { children } = props;
   return (
     <div>
