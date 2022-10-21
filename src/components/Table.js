@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { MyContext } from '../context/Mycontext';
-import megaFilter from '../services/funcs';
+import ovots from '../services/test';
 
 function Table() {
   const filterName = (arr, name) => {
@@ -14,38 +14,29 @@ function Table() {
   const [alreadyClicked, setAlreadyClicked] = useState(false);
   const [pl, setPl] = useState();
 
-  const { context, nameFilter, filter } = useContext(MyContext);
-  const mapPlanets = filterName(context, nameFilter);
+  const { context, nameFilter, filter, count } = useContext(MyContext);
+  const map1 = filterName(context, nameFilter);
 
   useEffect(() => {
+    const mapPlanets = filterName(context, nameFilter);
+    let len = count;
+    if (count !== 0) {
+      len = count - 1;
+    }
+
     const pabos = async () => {
-      console.log(filter);
-      if (filter.hasClicked === true) {
+      if (filter[len].hasClicked === true) {
         setAlreadyClicked(true);
-        console.log('aqui');
-        const mega = megaFilter(filter, mapPlanets);
-        setPl(mega);
+        console.log(filter);
+        const totalfiltered = await ovots(filter, mapPlanets);
+        setPl(totalfiltered);
       }
     };
     if (alreadyClicked === false) {
       setPl(mapPlanets);
     }
     pabos();
-  }, [nameFilter, context, filter, mapPlanets]);
-
-  /* const planets = value.context;
-          const { nameFilter, filter } = value;
-          const pfvFunciona = megaFilter(filter, mapPlanets);
-          if (filter.hasClicked && alreadyClicked === false) {
-            setAlreadyClicked(true)
-            setPl(pfvFunciona)
-          }
-          if (alreadyClicked === true && filter.hasClicked === true) {
-            if (pfvFunciona !== pl) {
-              setPl(pfvFunciona)
-            }
-          }
-  */
+  }, [filter, nameFilter, context, count]);
 
   return (
     <div>
@@ -83,7 +74,7 @@ function Table() {
               <td>{p.url}</td>
             </tr>
           ))
-            : mapPlanets.map((p) => (
+            : map1.map((p) => (
               <tr key={ p.name }>
                 <td>{p.name}</td>
                 <td>{p.rotation_period}</td>

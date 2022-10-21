@@ -73,21 +73,27 @@ const surfaceFilter = (filt, arra, ovo) => {
   }
 };
 
-const megaFilter = (fil, arr) => {
-  const num = Number(fil.numberFilter);
-  switch (fil.colunFilter) {
-  case 'population':
-    return populationFilter(fil, arr, num);
-  case 'diameter':
-    return diameterFilter(fil, arr, num);
-  case 'orbital_period':
-    return orbitalFilter(fil, arr, num);
-  case 'rotation_period':
-    return rotationFilter(fil, arr, num);
-  case 'surface_water':
-    return surfaceFilter(fil, arr, num);
-  default:
-    break;
+const megaFilter = (fi, arr) => {
+  if (fi.hasClicked === true) {
+    const finalArr = arr;
+    const num = Number(fi.numberFilter);
+    switch (fi.colunFilter) {
+    case 'population':
+      return populationFilter(fi, finalArr, num);
+    case 'diameter':
+      return diameterFilter(fi, finalArr, num);
+    case 'orbital_period':
+      return orbitalFilter(fi, finalArr, num);
+    case 'rotation_period':
+      return rotationFilter(fi, finalArr, num);
+    case 'surface_water':
+      return surfaceFilter(fi, finalArr, num);
+    default:
+      break;
+    }
+  }
+  if (fi.hasClicked === false) {
+    return arr;
   }
 };
 
