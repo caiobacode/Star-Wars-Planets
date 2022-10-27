@@ -6,7 +6,7 @@ function Filters() {
     <div>
       <MyContext.Consumer>
         {(value) => {
-          const { numbInput, handleChangeNumb } = value;
+          const { numbInput, handleChangeNumb, options } = value;
           return (
             <div>
               <label htmlFor="filter">
@@ -24,11 +24,11 @@ function Filters() {
                 data-testid="column-filter"
                 onChange={ value.handleChangeFilter }
               >
-                <option>population</option>
-                <option>orbital_period</option>
-                <option>diameter</option>
-                <option>rotation_period</option>
-                <option>surface_water</option>
+                {
+                  options.map((e) => (
+                    <option key={ e }>{e}</option>
+                  ))
+                }
               </select>
               <select
                 name="comparisonFilter"

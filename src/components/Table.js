@@ -27,7 +27,6 @@ function Table() {
     const pabos = async () => {
       if (filter[len].hasClicked === true) {
         setAlreadyClicked(true);
-        console.log(filter);
         const totalfiltered = await ovots(filter, mapPlanets);
         setPl(totalfiltered);
       }

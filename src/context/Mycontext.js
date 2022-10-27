@@ -15,14 +15,24 @@ function Prov(props) {
     comparisonFilter: 'maior que',
     numberFilter: 0,
   }]);
+  const [options, setOptions] = useState([
+    'population',
+    'diameter',
+    'orbital_period',
+    'rotation_period',
+    'surface_water']);
 
   const handleChange = ({ target }) => {
     setNameFilter(target.value);
   };
 
+  const handleChangeOptions = (str) => {
+    const arr = options.filter((e) => e !== str);
+    setOptions(arr);
+  };
+
   const handleChangeNumb = ({ target }) => {
     setNumbInput(target.value);
-    console.log(filter);
     const arr = filter;
     const novas = arr[count];
     arr[count] = {
@@ -35,7 +45,13 @@ function Prov(props) {
   const handleChangeFilter = ({ target }) => {
     const { name, value } = target;
     if (name === 'hasClicked') {
-      console.log(filter);
+      handleChangeOptions(filter[count].colunFilter);
+      const nsei = (param) => {
+        if (options[0] === param) {
+          return options[1];
+        }
+        return options[0];
+      };
       const talvez = filter[count];
       const newobj = {
         ...talvez,
@@ -43,7 +59,7 @@ function Prov(props) {
       };
       const newobj2 = {
         hasClicked: false,
-        colunFilter: 'population',
+        colunFilter: nsei(filter[count].colunFilter),
         comparisonFilter: 'maior que',
         numberFilter: numbInput,
       };
@@ -52,9 +68,7 @@ function Prov(props) {
       goState.push(newobj2);
       setFilter(goState);
       setCount(count + 1);
-      console.log('vimaqui');
     } else {
-      console.log('vimla');
       const arr = filter;
       const novas = arr[count];
       arr[count] = {
@@ -80,10 +94,11 @@ function Prov(props) {
     context,
     filter,
     numbInput,
+    options,
     handleChange,
     handleChangeFilter,
     handleChangeNumb,
-  }), [nameFilter, numbInput, context, filter,
+  }), [nameFilter, numbInput, context, filter, options,
     handleChange, handleChangeFilter, handleChangeNumb]);
 
   const { children } = props;
