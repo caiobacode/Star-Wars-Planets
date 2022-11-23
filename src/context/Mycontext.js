@@ -26,6 +26,15 @@ function Prov(props) {
     setNameFilter(target.value);
   };
 
+  const deleteActualFilter = (filt) => {
+    const newFilter = filter.filter((f) => f.colunFilter !== filt.colunFilter);
+    const newOptions = options;
+    newOptions.push(filt.colunFilter);
+    setOptions(newOptions);
+    setFilter(newFilter);
+    setCount(count - 1);
+  };
+
   const handleChangeOptions = (str) => {
     const arr = options.filter((e) => e !== str);
     setOptions(arr);
@@ -40,6 +49,22 @@ function Prov(props) {
       numberFilter: target.value,
     };
     setFilter(arr);
+  };
+
+  const handleDeleteFilters = () => {
+    setOptions([
+      'population',
+      'diameter',
+      'orbital_period',
+      'rotation_period',
+      'surface_water']);
+    setCount(0);
+    setFilter([{
+      hasClicked: false,
+      colunFilter: 'population',
+      comparisonFilter: 'maior que',
+      numberFilter: 0,
+    }]);
   };
 
   const handleChangeFilter = ({ target }) => {
@@ -98,8 +123,10 @@ function Prov(props) {
     handleChange,
     handleChangeFilter,
     handleChangeNumb,
-  }), [nameFilter, numbInput, context, filter, options,
-    handleChange, handleChangeFilter, handleChangeNumb]);
+    deleteActualFilter,
+    handleDeleteFilters,
+  }), [nameFilter, numbInput, context, filter, options, deleteActualFilter,
+    handleChange, handleChangeFilter, handleChangeNumb, handleDeleteFilters]);
 
   const { children } = props;
   return (

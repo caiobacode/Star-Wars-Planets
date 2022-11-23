@@ -29,6 +29,8 @@ function Table() {
         setAlreadyClicked(true);
         const totalfiltered = await ovots(filter, mapPlanets);
         setPl(totalfiltered);
+      } else {
+        setAlreadyClicked(false);
       }
     };
     if (alreadyClicked === false) {
