@@ -11,14 +11,31 @@ function Table() {
     return filtered;
   };
 
+  const verifyOrder = (arr1, arr2, order) => {
+    if (order.hasClicked === true) return arr2;
+    return arr1;
+  };
+
   const [alreadyClicked, setAlreadyClicked] = useState(false);
   const [pl, setPl] = useState();
 
-  const { context, nameFilter, filter, count } = useContext(MyContext);
-  const map1 = filterName(context, nameFilter);
+  const { context, nameFilter, filter, count, primalOrder } = useContext(MyContext);
+
+  const contextArray = [...context];
+  const ordenedArray = contextArray.sort((a, b) => {
+    const MENOS_UM = -1;
+    if (primalOrder.sort === 'DESC') {
+      if (b[primalOrder.colun] === 'unknown') return MENOS_UM;
+      return b[primalOrder.colun] - a[primalOrder.colun];
+    }
+    if (b[primalOrder.colun] === 'unknown') return MENOS_UM;
+    return a[primalOrder.colun] - b[primalOrder.colun];
+  });
+  const hasOrdened = verifyOrder(context, ordenedArray, primalOrder);
+  const map1 = filterName(hasOrdened, nameFilter);
 
   useEffect(() => {
-    const mapPlanets = filterName(context, nameFilter);
+    const mapPlanets = filterName(hasOrdened, nameFilter);
     let len = count;
     if (count !== 0) {
       len = count - 1;
@@ -37,7 +54,7 @@ function Table() {
       setPl(mapPlanets);
     }
     pabos();
-  }, [filter, nameFilter, context, count]);
+  }, [filter, nameFilter, alreadyClicked, context, primalOrder, count]);
 
   return (
     <div>
@@ -60,7 +77,7 @@ function Table() {
         {
           alreadyClicked ? pl.map((p) => (
             <tr key={ p.name }>
-              <td>{p.name}</td>
+              <td data-testid="planet-name">{p.name}</td>
               <td>{p.rotation_period}</td>
               <td>{p.orbital_period}</td>
               <td>{p.diameter}</td>
@@ -77,7 +94,7 @@ function Table() {
           ))
             : map1.map((p) => (
               <tr key={ p.name }>
-                <td>{p.name}</td>
+                <td data-testid="planet-name">{p.name}</td>
                 <td>{p.rotation_period}</td>
                 <td>{p.orbital_period}</td>
                 <td>{p.diameter}</td>

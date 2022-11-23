@@ -20,7 +20,30 @@ function Prov(props) {
     'diameter',
     'orbital_period',
     'rotation_period',
-    'surface_water']);
+    'surface_water',
+  ]);
+  const [primalOrder, setPrimalOrder] = useState({
+    colun: 'population',
+    sort: 'ASC',
+    hasClicked: false,
+  });
+  const [order, setOrder] = useState({
+    colun: 'population',
+    sort: 'ASC',
+    hasClicked: true,
+  });
+
+  const handleChangeOrder = ({ target }) => {
+    const { value, name } = target;
+    setOrder({
+      ...order,
+      [name]: value,
+    });
+  };
+
+  const handleAttOrder = () => {
+    setPrimalOrder(order);
+  };
 
   const handleChange = ({ target }) => {
     setNameFilter(target.value);
@@ -123,10 +146,14 @@ function Prov(props) {
     handleChange,
     handleChangeFilter,
     handleChangeNumb,
+    handleChangeOrder,
     deleteActualFilter,
     handleDeleteFilters,
-  }), [nameFilter, numbInput, context, filter, options, deleteActualFilter,
-    handleChange, handleChangeFilter, handleChangeNumb, handleDeleteFilters]);
+    handleAttOrder,
+    primalOrder,
+  }), [nameFilter, numbInput, context, filter, options, primalOrder,
+    deleteActualFilter, handleChangeOrder, handleChange, handleAttOrder,
+    handleChangeFilter, handleChangeNumb, handleDeleteFilters]);
 
   const { children } = props;
   return (

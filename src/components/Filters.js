@@ -13,7 +13,7 @@ function Filters() {
       <MyContext.Consumer>
         {(value) => {
           const { numbInput, handleChangeNumb, options,
-            filter, deleteActualFilter } = value;
+            filter, deleteActualFilter, handleChangeOrder, handleAttOrder } = value;
           return (
             <div>
               <label htmlFor="filter">
@@ -71,6 +71,44 @@ function Filters() {
                 onClick={ value.handleDeleteFilters }
               >
                 Remover filtros
+              </button>
+              <select
+                name="colun"
+                data-testid="column-sort"
+                onChange={ handleChangeOrder }
+              >
+                <option>population</option>
+                <option>diameter</option>
+                <option>orbital_period</option>
+                <option>rotation_period</option>
+                <option>surface_water</option>
+              </select>
+              <label htmlFor="sort">
+                Ascendende
+                <input
+                  name="sort"
+                  data-testid="column-sort-input-asc"
+                  type="radio"
+                  value="ASC"
+                  onClick={ handleChangeOrder }
+                />
+              </label>
+              <label htmlFor="sort">
+                Descendente
+                <input
+                  name="sort"
+                  data-testid="column-sort-input-desc"
+                  type="radio"
+                  value="DESC"
+                  onClick={ handleChangeOrder }
+                />
+              </label>
+              <button
+                data-testid="column-sort-button"
+                type="button"
+                onClick={ handleAttOrder }
+              >
+                Ordenar
               </button>
               <div>
                 {

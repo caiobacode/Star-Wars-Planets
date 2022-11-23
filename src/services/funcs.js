@@ -1,4 +1,7 @@
 const megaFilter = (fi, arr) => {
+  if (fi.colunFilter === undefined) {
+    return arr;
+  }
   if (fi.hasClicked === true) {
     const num = Number(fi.numberFilter);
     if (fi.comparisonFilter === 'maior que') {

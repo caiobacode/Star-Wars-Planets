@@ -146,4 +146,70 @@ describe('Star wars test', () => {
     userEvent.click(btnFilter)
     expect( await screen.findByRole('cell', {  name: /grasslands, mountains/i})).toBeDefined();
   })
+  it('testa population igual a', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      json: jest.fn().mockResolvedValue(data)
+    })
+    render(<App />)
+    const selectColumn = screen.getByTestId('column-filter');
+    const btnFilter = screen.getByTestId('button-filter');
+    const inputComparison = screen.getByTestId('comparison-filter');
+    const valueFilter = screen.getByTestId('value-filter');
+    userEvent.selectOptions(selectColumn, ['population']);
+    userEvent.selectOptions(inputComparison, ['igual a']);
+    userEvent.type(valueFilter, '1000');
+    userEvent.click(btnFilter)
+    expect( await screen.findByRole('cell', {  name: /jungle, rainforests/i})).toBeDefined();
+  })
+  it('testa trocar order', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      json: jest.fn().mockResolvedValue(data)
+    })
+    render(<App />)
+    const selectSort = screen.getByTestId("column-sort");
+    const btnOrder = screen.getByTestId("column-sort-button");
+    userEvent.selectOptions(selectSort, ['surface_water']);
+    userEvent.click(btnOrder);
+  })
+  it('testa trocar ordem para decrescente', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      json: jest.fn().mockResolvedValue(data)
+    })
+    render(<App />)
+    const selectSort = screen.getByTestId("column-sort");
+    const decrescenteBtn = screen.getByTestId("column-sort-input-desc");
+    const btnOrder = screen.getByTestId("column-sort-button");
+    userEvent.selectOptions(selectSort, ['population']);
+    userEvent.click(decrescenteBtn)
+    console.log(decrescenteBtn);
+    userEvent.click(btnOrder);
+    expect( await screen.findAllByRole('cell', {  name: /unknown/i})).toBeDefined();
+  })
+  it('testa deletar filtros', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      json: jest.fn().mockResolvedValue(data)
+    })
+    render(<App />)
+    const btnFilter = screen.getByTestId('button-filter');
+    const deleteFiltersBtn = screen.getByTestId('button-remove-filters')
+    userEvent.click(btnFilter)
+    const populationFilter = screen.getByText('Delete Filter')
+    userEvent.click(populationFilter)
+    userEvent.click(btnFilter)
+    userEvent.click(btnFilter)
+    userEvent.click(deleteFiltersBtn)
+  })
+  it('testa undefined', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      json: jest.fn().mockResolvedValue(data)
+    })
+    render(<App />)
+    const btnFilter = screen.getByTestId('button-filter');
+    userEvent.click(btnFilter);
+    userEvent.click(btnFilter);
+    userEvent.click(btnFilter);
+    userEvent.click(btnFilter);
+    userEvent.click(btnFilter);
+    userEvent.click(btnFilter);
+  })
 })
