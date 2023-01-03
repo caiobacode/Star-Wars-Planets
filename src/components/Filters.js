@@ -1,9 +1,10 @@
 import React from 'react';
 import { MyContext } from '../context/Mycontext';
+import '../css/Filters.css'
 
 function Filters() {
   const returnString = (fil) => {
-    console.log('qubra linha');
+    console.log(fil);
     return `${fil.colunFilter} ${fil.comparisonFilter} ${fil.numberFilter}`;
   };
 
@@ -15,19 +16,26 @@ function Filters() {
           const { numbInput, handleChangeNumb, options,
             filter, deleteActualFilter, handleChangeOrder, handleAttOrder } = value;
           return (
-            <div>
-              <label htmlFor="filter">
+            <div className='filters'>
+              <div className='only-filters'>
+              <div className='main-filters'>
+              <div className='main-filters-another-div'>
+              <label className='filter-label' htmlFor="filter">
                 Filter:
                 <input
                   name="filter"
                   data-testid="name-filter"
                   type="text"
+                  className='filter-input'
                   onChange={ value.handleChange }
                 />
               </label>
-              Coluna
+              <div className='input-options'>
+              <label className='colun-label' htmlFor='colunFilter'>
+                Coluna
               <select
                 name="colunFilter"
+                className='colun-input'
                 data-testid="column-filter"
                 onChange={ value.handleChangeFilter }
               >
@@ -37,8 +45,10 @@ function Filters() {
                   ))
                 }
               </select>
+              </label>
               <select
                 name="comparisonFilter"
+                className='comparison-input'
                 data-testid="comparison-filter"
                 onChange={ value.handleChangeFilter }
               >
@@ -46,32 +56,31 @@ function Filters() {
                 <option>menor que</option>
                 <option>igual a</option>
               </select>
-              <label htmlFor="numberFilter">
-                Number filter:
+              <label className='number-label' htmlFor="numberFilter">
+                Number filter
                 <input
                   name="numberFilter"
                   data-testid="value-filter"
                   type="number"
                   value={ numbInput }
+                  className='number-input'
                   onChange={ handleChangeNumb }
                 />
               </label>
+              </div>
+              </div>
               <button
                 type="button"
                 name="hasClicked"
+                className='filter-btn'
+                disabled={!options.length > 0}
                 data-testid="button-filter"
                 onClick={ value.handleChangeFilter }
               >
                 Filter
               </button>
-              <button
-                type="button"
-                name="deleteFilters"
-                data-testid="button-remove-filters"
-                onClick={ value.handleDeleteFilters }
-              >
-                Remover filtros
-              </button>
+              </div>
+              <div className='ordenate-div'>
               <select
                 name="colun"
                 data-testid="column-sort"
@@ -110,7 +119,20 @@ function Filters() {
               >
                 Ordenar
               </button>
-              <div>
+              </div>
+              <div className='remove-filters-btn-div'>
+
+              <button
+                type="button"
+                name="deleteFilters"
+                data-testid="button-remove-filters"
+                onClick={ value.handleDeleteFilters }
+                >
+                Remover filtros
+              </button>
+              </div>
+              </div>
+              <div className='delete-filters'>
                 {
                   verifyFilter(filter) && (
                     <div>
@@ -135,7 +157,7 @@ function Filters() {
                   )
                 }
               </div>
-            </div>
+              </div>
           );
         }}
       </MyContext.Consumer>

@@ -1,0 +1,106 @@
+.filters {
+  border: black solid 1px;
+  height: 250px;
+  display: flex;
+}
+
+.only-filters {
+  width: 70%;
+  border: black solid 1px;
+  height: 250px;
+  background-color: orange;
+  display: flex;
+}
+
+.delete-filters {
+  width: 30%;
+  height: 250px;
+  background-color: aqua;
+  border: black solid 1px;
+}
+
+.main-filters {
+  background-color: bisque;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.main-filters-another-div {
+  width: 60%;
+  margin-left: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.ordenate-div {
+  width: 35%;
+  background-color: blueviolet;
+}
+
+.remove-filters-btn-div {
+  width: 15%;
+  background-color: olive;
+}
+
+.filter-input {
+  width: 200px;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.filter-label {
+  font-size: 20px;
+}
+
+.colun-input {
+  width: 120px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.colun-label {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+
+.comparison-input {
+  font-size: 20px;
+  width: 100px;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.number-input {
+  font-size: 20px;
+  width: 120px;
+}
+
+.number-label {
+  font-size: 20px;
+  position: relative;
+  left: 30px;
+  margin-bottom: 10px;
+}
+
+.input-options {
+  display: flex;
+  height: 50%;
+  align-items: center;
+}
+
+.filter-btn {
+  margin-left: 10%;
+  border-radius: 10px;
+  border: none;
+  background-color: olive;
+  color: white;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+}
