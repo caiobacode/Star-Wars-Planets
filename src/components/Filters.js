@@ -1,6 +1,7 @@
 import React from 'react';
 import { MyContext } from '../context/Mycontext';
 import '../css/Filters.css'
+import trashImg from '../Media/trash-can.png'
 
 function Filters() {
   const returnString = (fil) => {
@@ -81,7 +82,9 @@ function Filters() {
               </button>
               </div>
               <div className='ordenate-div'>
+              <div className='ordenate-filters'>
               <select
+                className='order-options'
                 name="colun"
                 data-testid="column-sort"
                 onChange={ handleChangeOrder }
@@ -92,9 +95,10 @@ function Filters() {
                 <option>rotation_period</option>
                 <option>surface_water</option>
               </select>
-              <label htmlFor="sort">
+              <label className='asce-label' htmlFor="sort">
                 Ascendende
                 <input
+                  className='asce'
                   name="sort"
                   data-testid="column-sort-input-asc"
                   type="radio"
@@ -102,17 +106,20 @@ function Filters() {
                   onClick={ handleChangeOrder }
                 />
               </label>
-              <label htmlFor="sort">
+              <label className='desc-label' htmlFor="sort">
                 Descendente
                 <input
                   name="sort"
+                  className='desc'
                   data-testid="column-sort-input-desc"
                   type="radio"
                   value="DESC"
                   onClick={ handleChangeOrder }
                 />
               </label>
+              </div>
               <button
+                className='ordenate-btn'
                 data-testid="column-sort-button"
                 type="button"
                 onClick={ handleAttOrder }
@@ -125,6 +132,7 @@ function Filters() {
               <button
                 type="button"
                 name="deleteFilters"
+                className='remove-filters-btn'
                 data-testid="button-remove-filters"
                 onClick={ value.handleDeleteFilters }
                 >
@@ -140,13 +148,14 @@ function Filters() {
                         filter.map((f, index) => {
                           if (index === filter.length - 1 && filter.length > 1) return;
                           return (
-                            <div data-testid="filter" key={ f.colunFilter }>
-                              <p>{returnString(f)}</p>
+                            <div className='added-filter-div' data-testid="filter" key={ f.colunFilter }>
+                              <text className='added-filter'>{returnString(f)}</text>
                               <button
+                                className='added-filter-btn'
                                 onClick={ () => deleteActualFilter(f) }
                                 type="button"
                               >
-                                Delete Filter
+                                <img className='remove-btn-img' alt='remove-btn-img' src={trashImg} />
 
                               </button>
                             </div>

@@ -15,12 +15,13 @@
 .delete-filters {
   width: 30%;
   height: 250px;
-  background-color: aqua;
+  background-color: #1E1E1D;
   border: black solid 1px;
 }
 
 .main-filters {
-  background-color: bisque;
+  background-color: #1E1E1D;
+  border: solid black 2px;
   width: 50%;
   display: flex;
   align-items: center;
@@ -38,22 +39,52 @@
 
 .ordenate-div {
   width: 35%;
-  background-color: blueviolet;
+  background-color: #1E1E1D;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.ordenate-filters {
+  height: 200px;
+  width: 200px;
+  border: transparent solid 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .remove-filters-btn-div {
   width: 15%;
-  background-color: olive;
+  background-color: #1E1E1D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-filters-btn {
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  border: solid #F3FA03 1px;
+  color: white;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
 }
 
 .filter-input {
   width: 200px;
   font-size: 20px;
   margin-top: 30px;
+  outline: none;
 }
 
 .filter-label {
   font-size: 20px;
+  color: white;
 }
 
 .colun-input {
@@ -64,6 +95,7 @@
 
 .colun-label {
   font-size: 20px;
+  color: white;
   margin-left: 10px;
 }
 
@@ -79,9 +111,11 @@
 .number-input {
   font-size: 20px;
   width: 120px;
+  outline: none;
 }
 
 .number-label {
+  color: white;
   font-size: 20px;
   position: relative;
   left: 30px;
@@ -98,9 +132,79 @@
   margin-left: 10%;
   border-radius: 10px;
   border: none;
-  background-color: olive;
+  background-color: transparent;
+  border: solid #F3FA03 1px;
   color: white;
   width: 120px;
   height: 50px;
   font-size: 20px;
+}
+
+.ordenate-btn {
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  border: solid #F3FA03 1px;
+  color: white;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.order-options {
+  width: 120px;
+  font-size: 20px;
+}
+
+.asce-label {
+  color: white;
+  font-size: 20px;
+}
+
+.asce {
+  
+}
+
+.desc-label {
+  color: white;
+  font-size: 20px;
+}
+
+.desc {
+
+}
+
+.colors {
+  color: #e89e10;
+  color: #2e4558;
+}
+
+.added-filter-div {
+  width: 400px;
+  height: 35px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.added-filter {
+  color: white;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.added-filter-btn {
+  margin-right: 40px;
+  background-color: transparent;
+  border: none;
+  transition: 0.2s ease-in-out;
+}
+
+.added-filter-btn:hover {
+  transform: scale(1.1);
+}
+
+.remove-btn-img {
+  width: 40px;
 }
