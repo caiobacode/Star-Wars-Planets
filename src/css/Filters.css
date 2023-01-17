@@ -1,12 +1,10 @@
 .filters {
-  border: black solid 1px;
   height: 250px;
   display: flex;
 }
 
 .only-filters {
   width: 70%;
-  border: black solid 1px;
   height: 250px;
   background-color: orange;
   display: flex;
@@ -16,12 +14,11 @@
   width: 30%;
   height: 250px;
   background-color: #1E1E1D;
-  border: black solid 1px;
 }
 
 .main-filters {
   background-color: #1E1E1D;
-  border: solid black 2px;
+  
   width: 50%;
   display: flex;
   align-items: center;
@@ -180,7 +177,7 @@
 }
 
 .added-filter-div {
-  width: 400px;
+  width: 350px;
   height: 35px;
   margin: 10px;
   display: flex;

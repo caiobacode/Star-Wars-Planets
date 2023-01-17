@@ -1,0 +1,29 @@
+.header {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-div {
+  height: 98%;
+  width: 60%;
+  background-color: black;
+  border-radius: 40px;
+  border: solid white 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star-wars-title {
+  font-family: starWarsFont;
+  font-size: 80px;
+  color: #F3FA03;
+}
+
+@font-face {
+  font-family: starWarsFont;
+  src: url('../Media/Starjedi.ttf');
+}

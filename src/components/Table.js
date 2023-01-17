@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { MyContext } from '../context/Mycontext';
 import ovots from '../services/test';
+import '../css/Table.css'
 
 function Table() {
   const filterName = (arr, name) => {
@@ -57,22 +58,22 @@ function Table() {
   }, [filter, nameFilter, alreadyClicked, context, primalOrder, count]);
 
   return (
-    <div>
+    <div className='table-div'>
       <table>
         <tr>
-          <th>Name</th>
-          <th>Rotation Period</th>
-          <th>Orbital Period</th>
-          <th>Diameter</th>
-          <th>Climate</th>
-          <th>Gravity</th>
-          <th>Terrain</th>
-          <th>Surface Water</th>
-          <th>Population</th>
-          <th>Films</th>
-          <th>Created</th>
-          <th>Edited</th>
-          <th>URL</th>
+          <th className='th-item'>Name</th>
+          <th className='th-item'>Rotation Period</th>
+          <th className='th-item'>Orbital Period</th>
+          <th className='th-item'>Diameter</th>
+          <th className='th-item'>Climate</th>
+          <th className='th-item'>Gravity</th>
+          <th className='th-item'>Terrain</th>
+          <th className='th-item'>Surface Water</th>
+          <th className='th-item'>Population</th>
+          <th className='th-item'>Films</th>
+          <th className='th-item'>Created</th>
+          <th className='th-item'>Edited</th>
+          <th className='th-item'>URL</th>
         </tr>
         {
           alreadyClicked ? pl.map((p) => (
@@ -103,10 +104,10 @@ function Table() {
                 <td>{p.terrain}</td>
                 <td>{p.surface_water}</td>
                 <td>{p.population}</td>
-                <td>{p.films}</td>
+                <td className='hover' onClick={() => window.open(p.films)}>{p.films}</td>
                 <td>{p.created}</td>
                 <td>{p.edited}</td>
-                <td>{p.url}</td>
+                <td className='hover' onClick={() => window.open(p.url)}>{p.url}</td>
               </tr>
             ))
         }
