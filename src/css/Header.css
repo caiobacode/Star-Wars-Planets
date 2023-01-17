@@ -21,9 +21,25 @@
   font-family: starWarsFont;
   font-size: 80px;
   color: #F3FA03;
+  text-align: center;
 }
 
 @font-face {
   font-family: starWarsFont;
   src: url('../Media/Starjedi.ttf');
+}
+
+@media (max-width: 1560px) {
+  .star-wars-title {
+    font-size: 50px;
+  }
+  .header {
+    height: 130px;
+  }
+}
+
+@media (max-width: 960px) {
+  .header {
+    height: 150px;
+  }
 }
