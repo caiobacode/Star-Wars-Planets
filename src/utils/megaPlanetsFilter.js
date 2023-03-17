@@ -1,4 +1,4 @@
-const megaFilter = (fi, arr) => {
+const filter = (fi, arr) => {
   if (fi.colunFilter === undefined) {
     return arr;
   }
@@ -23,4 +23,13 @@ const megaFilter = (fi, arr) => {
   }
 };
 
-export default megaFilter;
+const megaPlanetsFilter = (filt, ar) => {
+  let small = ar;
+  for (let index = 0; index < filt.length; index += 1) {
+    small = filter(filt[index], small);
+  }
+  return small;
+};
+
+export default megaPlanetsFilter;
+

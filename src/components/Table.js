@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { MyContext } from '../context/Mycontext';
-import ovots from '../services/test';
+import megaPlanetsFilter from '../utils/megaPlanetsFilter';
+import getRamdomFilm from '../utils/getRamdomFilm';
 import '../css/Table.css'
 
 function Table() {
@@ -42,10 +43,10 @@ function Table() {
       len = count - 1;
     }
 
-    const pabos = async () => {
+    const filtPlanets = async () => {
       if (filter[len].hasClicked === true) {
         setAlreadyClicked(true);
-        const totalfiltered = await ovots(filter, mapPlanets);
+        const totalfiltered = await megaPlanetsFilter(filter, mapPlanets);
         setPl(totalfiltered);
       } else {
         setAlreadyClicked(false);
@@ -54,8 +55,10 @@ function Table() {
     if (alreadyClicked === false) {
       setPl(mapPlanets);
     }
-    pabos();
+    filtPlanets();
   }, [filter, nameFilter, alreadyClicked, context, primalOrder, count]);
+
+  console.log(pl);
 
   return (
     <div className='table-div has-scrollbar'>
@@ -70,7 +73,7 @@ function Table() {
           <th className='th-item'>Terrain</th>
           <th className='th-item'>Surface Water</th>
           <th className='th-item'>Population</th>
-          <th className='th-item'>Films</th>
+          <th className='th-item'>Film</th>
           <th className='th-item'>Created</th>
           <th className='th-item'>Edited</th>
           <th className='th-item'>URL</th>
@@ -87,7 +90,7 @@ function Table() {
               <td>{p.terrain}</td>
               <td>{p.surface_water}</td>
               <td>{p.population}</td>
-              <td>{p.films}</td>
+              <td>{p.films[getRamdomFilm(p.films)]}</td>
               <td>{p.created}</td>
               <td>{p.edited}</td>
               <td>{p.url}</td>
@@ -104,7 +107,7 @@ function Table() {
                 <td>{p.terrain}</td>
                 <td>{p.surface_water}</td>
                 <td>{p.population}</td>
-                <td className='hover' onClick={() => window.open(p.films)}>{p.films}</td>
+                <td className='hover' onClick={() => window.open(p.films[getRamdomFilm(p.films)])}>{p.films[getRamdomFilm(p.films)]}</td>
                 <td>{p.created}</td>
                 <td>{p.edited}</td>
                 <td className='hover' onClick={() => window.open(p.url)}>{p.url}</td>

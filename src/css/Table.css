@@ -52,7 +52,6 @@ td {
 
 .hover:hover {
   color: aqua;
-  font-size: 22px;
   cursor: pointer;
 }
 
