@@ -38,6 +38,10 @@ body {
   color: #61dafb;
 }
 
+.mobile-div{
+  display: none;
+}
+
 @keyframes App-logo-spin {
 
   from {
@@ -47,4 +51,103 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+@media(max-width: 1000px) {
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .social-div {
+    margin-top: 20px;
+  }
+  .github-img {
+    width: 60px;
+  }
+  .github-btn {
+    cursor: pointer;
+    background-color: transparent;
+    transition: transform 150ms ease-in-out;
+  }
+  
+  .github-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .linkedin-img {
+    width: 60px;
+    
+  }
+  
+  .linkedin-btn {
+    cursor: pointer;
+    z-index: 25;
+    background-color: transparent;
+    transition: transform 150ms ease-in-out;
+  }
+  
+  .linkedin-btn:hover {
+    transform: scale(1.1);
+  }
+  .mobile-div {
+    width: 50vw;
+    height: 20vh;
+    color: white;
+    font-family: myFont;
+    font-size: 20px;
+    text-align: center;
+    border: solid 2px #F3FA03;
+    border-radius: 20px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    align-items: center;
+  }
+
+  .mobile-text {
+    color: white;
+    font-family: myFont;
+    font-size: 20px;
+    text-align: center;
+  }
+  .linkedin-btn {
+    border: none;
+  }
+
+  .github-btn {
+    border: none;
+  }
+}
+
+@media(max-width: 600px) {
+  .mobile-div {
+    width: 80vw;
+  }
+}
+
+@media(max-width: 400px) {
+  .mobile-div {
+    width: 80vw;
+    height: 40vh;
+  }
+}
+
+
+@font-face {
+  font-family: myFont;
+  src: url('./Fonts/pink.otf');
+}
+
+@font-face {
+  font-family: regularFont;
+  src: url('./Fonts/pinkSub.otf');
+}
+
+@font-face {
+  font-family: titleFont;
+  src: url('./Fonts/pinkbold.otf');
 }

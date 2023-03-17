@@ -31,6 +31,16 @@ function Filters() {
                   onChange={ value.handleChange }
                 />
               </label>
+              <button
+                type="button"
+                name="hasClicked"
+                className='filter-btn'
+                disabled={!options.length > 0}
+                data-testid="button-filter"
+                onClick={ value.handleChangeFilter }
+              >
+                Filter
+              </button>
               <div className='input-options'>
               <label className='colun-label' htmlFor='colunFilter'>
                 Coluna
@@ -70,16 +80,6 @@ function Filters() {
               </label>
               </div>
               </div>
-              <button
-                type="button"
-                name="hasClicked"
-                className='filter-btn'
-                disabled={!options.length > 0}
-                data-testid="button-filter"
-                onClick={ value.handleChangeFilter }
-              >
-                Filter
-              </button>
               </div>
               <div className='ordenate-div'>
               <div className='ordenate-filters'>

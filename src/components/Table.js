@@ -58,7 +58,7 @@ function Table() {
   }, [filter, nameFilter, alreadyClicked, context, primalOrder, count]);
 
   return (
-    <div className='table-div'>
+    <div className='table-div has-scrollbar'>
       <table>
         <tr>
           <th className='th-item'>Name</th>
