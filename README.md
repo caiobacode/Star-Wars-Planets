@@ -1,19 +1,18 @@
-<h1 align="center">Star Wars Planets</h1>
+<h1 align="center">🌟  Star Wars Planets  🪐</h1>
 
 
-## Descrição
-<p>O Star Wars Planets consiste em uma aplicação onde são listados os principais planetas do Star Wars e suas características, 
-a lista de planetas vem de uma requisição a API "https://swapi.dev/api", você pode filtrar os planetas pelo nome, população, diamêtro, etc...</p>
+## Description
+<p>Star Wars Planets is an application that lists the main planets of Star Wars and their characteristics. The list of planets is obtained through a request to the API "https://swapi.dev/api". You can filter the planets by name, population, diameter, etc.</p>
 
-## Tecnologias usadas
+## 💻 Tecnologies used
 
 - JavaScript
 - React.JS
 - Context API
 - React Testing Library
 
-## Instruções
-#### Requisitos
+## 🛠️ Instructions
+#### 📚 Requirements to run this project:
 > [![Node.js][Node.js]][Node.js-url]
 [![Git][Git]][Git-url]
 [![NPM][NPM]][NPM-url]
@@ -23,7 +22,7 @@ a lista de planetas vem de uma requisição a API "https://swapi.dev/api", você
 
 ```bash
 # Clone the repo
-git clone https://github.com/vinibortoletto/frontend-online-store.git
+git clone https://github.com/caiobacode/Star-Wars-Planets.git
 
 # Enter in repo
 cd Star-Wars-Planets
