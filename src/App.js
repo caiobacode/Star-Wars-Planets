@@ -13,7 +13,7 @@ function App() {
   return (
     <Prov>
       <div className='mobile-div'>
-        <p className='mobile-text'>Opss, esta aplicação só esta disponível para dispositivos com a largura maior do que 1000 pixels</p>
+        <p className='mobile-text'>Oops, this application is only available for devices with a width greater than 1000 pixels</p>
         <div className="social-div">
         <button
           className="github-btn"
