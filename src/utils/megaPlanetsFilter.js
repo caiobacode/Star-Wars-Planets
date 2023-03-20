@@ -4,15 +4,15 @@ const filter = (fi, arr) => {
   }
   if (fi.hasClicked === true) {
     const num = Number(fi.numberFilter);
-    if (fi.comparisonFilter === 'maior que') {
+    if (fi.comparisonFilter === 'greater than') {
       const filtered = arr.filter((planet) => Number(planet[fi.colunFilter]) > num);
       return filtered;
     }
-    if (fi.comparisonFilter === 'menor que') {
+    if (fi.comparisonFilter === 'litle than') {
       const filtered = arr.filter((planet) => Number(planet[fi.colunFilter]) < num);
       return filtered;
     }
-    if (fi.comparisonFilter === 'igual a') {
+    if (fi.comparisonFilter === 'equal to') {
       const filtered = arr
         .filter((planet) => Number(planet[fi.colunFilter]) === num);
       return filtered;

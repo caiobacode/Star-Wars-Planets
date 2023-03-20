@@ -136,6 +136,22 @@ body {
   }
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+  border-radius: 150px;
+  background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to right, #F3FA03, #f7fd4e);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(to right, #F3FA03, #f7fd4e);
+  border-radius: 5px;
+}
 
 @font-face {
   font-family: myFont;

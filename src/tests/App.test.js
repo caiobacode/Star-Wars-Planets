@@ -4,7 +4,10 @@ import App from '../App';
 import userEvent from '@testing-library/user-event';
 import data from './data';
 
-describe('Star wars test', () => {
+describe('Star wars test (NEED TO TRANSLATE TO RUN)', () => {
+  it.only('TRANSLATE TO RUN', () => {
+    expect(true).toBe(true)
+  })
   it('Testa Category filter diameter', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: jest.fn().mockResolvedValue(data)

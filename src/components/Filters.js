@@ -14,61 +14,56 @@ function Filters() {
     <div>
       <MyContext.Consumer>
         {(value) => {
-          const { numbInput, handleChangeNumb, options,
-            filter, deleteActualFilter, handleChangeOrder, handleAttOrder } = value;
+          const { numbInput, handleChangeNumb, options, filter, deleteActualFilter, 
+            handleChangeOrder, handleAttOrder, handleChange, handleChangeFilter, 
+            handleDeleteFilters } = value;
           return (
             <div className='filters'>
-              <div className='only-filters'>
-              <div className='main-filters'>
-              <div className='main-filters-another-div'>
-              <label className='filter-label' htmlFor="filter">
-                Filter:
+              <div className='input-ordenate'>
+              <div className='input-div'>
+                <h3 className='delete-title'>Filter planets</h3>
+               <label className='filter-name-label' htmlFor="filter">
+                Filter by name
                 <input
                   name="filter"
                   data-testid="name-filter"
                   type="text"
-                  className='filter-input'
-                  onChange={ value.handleChange }
+                  className='filter-name-input'
+                  onChange={ handleChange }
                 />
               </label>
-              <button
-                type="button"
-                name="hasClicked"
-                className='filter-btn'
-                disabled={!options.length > 0}
-                data-testid="button-filter"
-                onClick={ value.handleChangeFilter }
-              >
-                Filter
-              </button>
-              <div className='input-options'>
+              <div>
+
               <label className='colun-label' htmlFor='colunFilter'>
-                Coluna
+                Filter by column
               <select
                 name="colunFilter"
                 className='colun-input'
                 data-testid="column-filter"
-                onChange={ value.handleChangeFilter }
-              >
+                onChange={ handleChangeFilter }
+                >
                 {
                   options.map((e) => (
                     <option key={ e }>{e}</option>
-                  ))
+                    ))
                 }
               </select>
               </label>
+              <label className='comparison-label' htmlFor='comparisonFilter'>
+                Comparison
               <select
                 name="comparisonFilter"
                 className='comparison-input'
                 data-testid="comparison-filter"
-                onChange={ value.handleChangeFilter }
-              >
-                <option>maior que</option>
-                <option>menor que</option>
-                <option>igual a</option>
+                onChange={ handleChangeFilter }
+                >
+                <option>greater than</option>
+                <option>litle than</option>
+                <option>equal to</option>
               </select>
-              <label className='number-label' htmlFor="numberFilter">
-                Number filter
+              </label>
+              <label className='value-label' htmlFor="numberFilter">
+                Value
                 <input
                   name="numberFilter"
                   data-testid="value-filter"
@@ -76,27 +71,38 @@ function Filters() {
                   value={ numbInput }
                   className='number-input'
                   onChange={ handleChangeNumb }
-                />
+                  />
               </label>
               </div>
+              <button
+                type="button"
+                name="hasClicked"
+                className='filter-btn'
+                disabled={!options.length > 0}
+                data-testid="button-filter"
+                onClick={ handleChangeFilter }
+              >
+                Filter
+              </button>
               </div>
-              </div>
+
               <div className='ordenate-div'>
-              <div className='ordenate-filters'>
+              <label className='order-label' htmlFor='colun'>Order by
               <select
                 className='order-options'
                 name="colun"
                 data-testid="column-sort"
                 onChange={ handleChangeOrder }
-              >
+                >
                 <option>population</option>
                 <option>diameter</option>
                 <option>orbital_period</option>
                 <option>rotation_period</option>
                 <option>surface_water</option>
               </select>
+              </label>
               <label className='asce-label' htmlFor="sort">
-                Ascendende
+                 Ascending
                 <input
                   className='asce'
                   name="sort"
@@ -104,10 +110,10 @@ function Filters() {
                   type="radio"
                   value="ASC"
                   onClick={ handleChangeOrder }
-                />
+                  />
               </label>
               <label className='desc-label' htmlFor="sort">
-                Descendente
+                Descending
                 <input
                   name="sort"
                   className='desc'
@@ -115,47 +121,36 @@ function Filters() {
                   type="radio"
                   value="DESC"
                   onClick={ handleChangeOrder }
-                />
+                  />
               </label>
-              </div>
               <button
                 className='ordenate-btn'
                 data-testid="column-sort-button"
                 type="button"
                 onClick={ handleAttOrder }
-              >
-                Ordenar
-              </button>
-              </div>
-              <div className='remove-filters-btn-div'>
-
-              <button
-                type="button"
-                name="deleteFilters"
-                className='remove-filters-btn'
-                data-testid="button-remove-filters"
-                onClick={ value.handleDeleteFilters }
                 >
-                Remover filtros
+                Order
               </button>
-              </div>
-              </div>
-              <div className='delete-filters'>
+                </div>
+             </div>
+            <div className='delete-filters-div'>
+              <h3 className='delete-title'>Added filters</h3>
+              <div className='added-filters'>
                 {
                   verifyFilter(filter) && (
                     <div>
                       {
                         filter.map((f, index) => {
-                          if (index === filter.length - 1 && filter.length > 1) return;
+                          if (index === filter.length - 1 && filter.length > 1) return <div></div>;
                           return (
                             <div className='added-filter-div' data-testid="filter" key={ f.colunFilter }>
-                              <text className='added-filter'>{returnString(f)}</text>
+                              <text className='added-filter-name'>{returnString(f)}</text>
                               <button
-                                className='added-filter-btn'
+                                className='remove-this-filter-btn'
                                 onClick={ () => deleteActualFilter(f) }
                                 type="button"
                               >
-                                <img className='remove-btn-img' alt='remove-btn-img' src={trashImg} />
+                                <img className='remove-filter-img' alt='remove-btn-img' src={trashImg} />
 
                               </button>
                             </div>
@@ -165,6 +160,16 @@ function Filters() {
                     </div>
                   )
                 }
+                </div>
+                <button
+                type="button"
+                name="deleteFilters"
+                className='remove-all-filters-btn'
+                data-testid="button-remove-filters"
+                onClick={ handleDeleteFilters }
+                >
+                Delete filters
+              </button>
               </div>
               </div>
           );

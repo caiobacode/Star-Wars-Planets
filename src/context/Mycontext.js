@@ -12,7 +12,7 @@ function Prov(props) {
   const [filter, setFilter] = useState([{
     hasClicked: false,
     colunFilter: 'population',
-    comparisonFilter: 'maior que',
+    comparisonFilter: 'greater than',
     numberFilter: 0,
   }]);
   const [options, setOptions] = useState([
@@ -85,7 +85,7 @@ function Prov(props) {
     setFilter([{
       hasClicked: false,
       colunFilter: 'population',
-      comparisonFilter: 'maior que',
+      comparisonFilter: 'greater than',
       numberFilter: 0,
     }]);
   };
@@ -108,7 +108,7 @@ function Prov(props) {
       const newobj2 = {
         hasClicked: false,
         colunFilter: nsei(filter[count].colunFilter),
-        comparisonFilter: 'maior que',
+        comparisonFilter: 'greater than',
         numberFilter: numbInput,
       };
       const goState = filter;
