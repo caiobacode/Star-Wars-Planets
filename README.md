@@ -2,7 +2,7 @@
 
 <a href="https://star-wars-planets-drab.vercel.app" target="_blank"><img alt="star-wars-gif" src="./readme.gif"></a>
 
-> Click on the gif to access the deploy
+> Click on the gif above to access the deploy
 
 ## Description
 <p>Star Wars Planets is an application that lists the main planets of Star Wars and their characteristics. The list of planets is obtained through a request to the API "https://swapi.dev/api". You can filter the planets by name, population, diameter, etc.</p>
