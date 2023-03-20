@@ -2,11 +2,7 @@
 
 <img alt="star-wars-gif" src="./readme.gif">
 
-<br>
-
 [![REPO][REPO]][REPO-URL]
-
-<br>
 
 
 ## Description
