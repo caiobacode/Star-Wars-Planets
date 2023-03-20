@@ -2,7 +2,10 @@
 
 <img alt="star-wars-gif" src="./readme.gif">
 
-[![REPO][REPO]][REPO-URL]
+<div align='center'>
+ 
+   <a href="https://star-wars-planets-drab.vercel.app" target="_blank"><img height='50px' style='border-radius: 5px' src="./readme2.gif" target="_blank"></a>
+ </div>
 
 
 ## Description
@@ -38,8 +41,6 @@ npm i
 npm start
 ```
 
-[REPO]: https://img.shields.io/badge/-Access%20Deploy-F3FA03?style=for-the-badge
-[REPO-URL]: https://star-wars-planets-drab.vercel.app
 [Node.js]: https://img.shields.io/badge/-Node.js-80BC02?style=for-the-badge&logo=node.js&logoColor=black
 [Node.js-url]: https://nodejs.org/en
 [Git]: https://img.shields.io/badge/Git-F05033?style=for-the-badge&logo=git&logoColor=white
